@@ -1,3 +1,7 @@
+class User {
+  String name = "kim";
+}
+
 main(){
   //모든 변수는 객체이다.
   int data1 = 10;
@@ -38,4 +42,20 @@ main(){
   String? b2 = 'hello';//String + nullable
   b2 = null;
   b2?.substring(2);
+
+  List list1 = [];
+
+
+  User user1 = User();
+  User user2 = user1;
+  print("${user1.name}, ${user2.name}");//kim, kim
+  user1.name = "lee";
+  print("${user1.name}, ${user2.name}");//lee, lee
+
+  int c1 = 10;
+  int c2 = c1;
+  print("$c1, $c2");//10, 10
+  c1 = 20;
+  print("$c1, $c2");//20, 10
+
 }

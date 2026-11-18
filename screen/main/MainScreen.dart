@@ -1,3 +1,4 @@
+import 'package:flutter_lab/screen/event/EventScreen.dart';
 import 'package:material_ui/material_ui.dart';
 import './dto/DestinationDto.dart';
 import './widgets/DestinationCard.dart';
@@ -87,7 +88,7 @@ class MainScreen extends StatelessWidget {
                     ),
                     ElevatedButton.icon(
                       onPressed: (){
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => EventScreen()));
                       },
                       label: Text('전체 여행지 보기'),
                       icon: Icon(Icons.arrow_drop_down, size: 20,),

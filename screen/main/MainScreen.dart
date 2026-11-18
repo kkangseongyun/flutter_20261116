@@ -1,4 +1,5 @@
 import 'package:flutter_lab/screen/event/EventScreen.dart';
+import 'package:flutter_lab/screen/main/widgets/MainDrawer.dart';
 import 'package:flutter_lab/screen/myinfo/MyInfoScreen.dart';
 import 'package:material_ui/material_ui.dart';
 import './dto/DestinationDto.dart';
@@ -58,6 +59,7 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text('MainScreen'),
         ),
+        drawer: MainDrawer(),
         //위젯을 나열하다 화면을 벗어나면 스크롤을 신경쓰지 않았다고 검정/노랑 경고 패펀
         body: SingleChildScrollView(
           child: Column(
@@ -115,12 +117,12 @@ class MainScreen extends StatelessWidget {
                   children: makeCard(),
                 ),
               ),
-              ElevatedButton(
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfoScreen()));
-                  },
-                  child: Text('Go MyInfo'),
-              )
+              // ElevatedButton(
+              //     onPressed: (){
+              //       Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfoScreen()));
+              //     },
+              //     child: Text('Go MyInfo'),
+              // )
             ],
           ),
         )

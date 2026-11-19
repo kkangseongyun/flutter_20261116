@@ -1,4 +1,5 @@
 import 'package:flutter_lab/screen/detail/DetailScreen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../dto/DestinationDto.dart';
@@ -21,7 +22,10 @@ class DestinationCard extends StatelessWidget {
         //GestureDetector - 유저 터치 이벤트 시에 UI 효과는 없다.
         //InkWell - 유저 터치 이벤트 시에 잉크 번짐 UI 효과 기본 적용해 준다.
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen()));
+          // Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen()));
+          context.push('/detail', extra: {
+            'destination': destinationDto
+          });
         },
         //잉크 번짐 효과가 어디까지 진행되어야 하는가?
         //둥근 사각형 카드로 화면이 나오는 경우 아래 설정이 없으면 사각형 모서리 밖까지 잉크 번짐이 진행

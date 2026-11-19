@@ -1,3 +1,5 @@
+import 'package:flutter_lab/screen/main/dto/DestinationDto.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'widgets/DetailMainWidget.dart';
@@ -25,6 +27,13 @@ class DetailState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    //화면 전환시 전달된 데이터 추출..
+    var state = GoRouterState.of(context);
+    var extra = state.extra as Map<String, dynamic>;
+
+    DestinationDto dto = extra['destination'] as DestinationDto;
+
     return Scaffold(
       //접히는 부분을 표현하기 위해서는 appbar 사용하면 안된다..
       //화면에 하나의 위젯쪽에서 (ListView) 스크롤이 발생할 때 다른 부분이 같이 접히게(상단)하려면
@@ -41,7 +50,7 @@ class DetailState extends State<DetailScreen> {
               pinned: true,
               backgroundColor: Color(0xFF3899DD),
               flexibleSpace: FlexibleSpaceBar(
-                title: Text('스위스', style: TextStyle(color: Colors.white,),),
+                title: Text(dto.destination, style: TextStyle(color: Colors.white,),),
                 titlePadding: EdgeInsets.only(left: 56, bottom: 16,),
                 expandedTitleScale: 1.0,//접혔을때 대시 확대되었을때 타이틀 문자열 크기
                 background: Image.asset('assets/images/detail_main.jpg', fit: BoxFit.cover,),

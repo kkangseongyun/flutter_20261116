@@ -1,4 +1,5 @@
 import 'package:flutter_lab/screen/myinfo/MyInfoScreen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -37,7 +38,11 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('MyInfo'),
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfoScreen()));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfoScreen()));
+              context.push('/myinfo/20?q=flutter', extra: {
+                'item': 'hello',
+                'no': 10
+              });
             },
           )
         ],

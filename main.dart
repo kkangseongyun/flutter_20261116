@@ -1,4 +1,5 @@
 import 'package:flutter_lab/screen/detail/DetailScreen.dart';
+import 'package:flutter_lab/screen/dio/DioTestScreen.dart';
 import 'package:flutter_lab/screen/event/EventScreen.dart';
 import 'package:flutter_lab/screen/main/MainScreen.dart';
 import 'package:flutter_lab/screen/myinfo/MyInfoScreen.dart';
@@ -24,6 +25,7 @@ GoRouter router = GoRouter(
     }),
     GoRoute(path: '/event', builder: (context, state) => EventScreen()),
     GoRoute(path: '/detail', builder: (context, state) => DetailScreen()),
+    GoRoute(path: '/dio', builder: (context, state) => DioTestScreen()),
   ]
 );
 

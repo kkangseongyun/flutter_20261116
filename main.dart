@@ -9,6 +9,7 @@ import 'package:flutter_lab/screen/dio/DioTestScreen.dart';
 import 'package:flutter_lab/screen/event/EventScreen.dart';
 import 'package:flutter_lab/screen/main/MainScreen.dart';
 import 'package:flutter_lab/screen/myinfo/MyInfoScreen.dart';
+import 'package:flutter_lab/screen/platform/PlatformScreen.dart';
 import 'package:flutter_lab/screen/provider/ProviderAddScreen.dart';
 import 'package:flutter_lab/screen/provider/ProviderHomeScreen.dart';
 import 'package:flutter_lab/screen/riverpod/RiverpodAddScreen.dart';
@@ -88,6 +89,7 @@ GoRouter router = GoRouter(
         GoRoute(path: '/bloc-add', builder: (context, state) => BlocAddScreen()),
       ],
     ),
+    GoRoute(path: '/platform', builder: (context, state) => PlatformScreen()),
   ],
 );
 

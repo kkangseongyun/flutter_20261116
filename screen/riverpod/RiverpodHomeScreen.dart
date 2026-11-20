@@ -34,6 +34,9 @@ class _HomeScreenState extends ConsumerState<RiverpodHomeScreen>
   @override
   Widget build(BuildContext context) {
 
+    //상태를 획득해서 화면 출력이다. 일반적으로 watch(), 상태 변경시 계속 데이터 전달..
+    var todos = ref.watch(todosProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Todos'),

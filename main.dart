@@ -1,4 +1,5 @@
 import 'package:flutter_lab/provider/TodosModel.dart';
+import 'package:flutter_lab/riverpod/RiverpodNotifier.dart';
 import 'package:flutter_lab/screen/detail/DetailScreen.dart';
 import 'package:flutter_lab/screen/dio/DioTestScreen.dart';
 import 'package:flutter_lab/screen/event/EventScreen.dart';
@@ -6,12 +7,21 @@ import 'package:flutter_lab/screen/main/MainScreen.dart';
 import 'package:flutter_lab/screen/myinfo/MyInfoScreen.dart';
 import 'package:flutter_lab/screen/provider/ProviderAddScreen.dart';
 import 'package:flutter_lab/screen/provider/ProviderHomeScreen.dart';
+import 'package:flutter_lab/screen/riverpod/RiverpodAddScreen.dart';
+import 'package:flutter_lab/screen/riverpod/RiverpodHomeScreen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  //riverpod 시용시 최소의 규칙..
+  //앱을 위한 상태 저장소 준비..
+  runApp(
+    ProviderScope(
+      child: const MyApp()
+    ),
+  );
 }
 
 //화면 정보 등록..
@@ -45,6 +55,21 @@ GoRouter router = GoRouter(
         //이곳에 등록된 화면이 child가 된다.
         GoRoute(path: '/provider-home', builder: (context, state) => ProviderHomeScreen()),
         GoRoute(path: '/provider-add', builder: (context, state) => ProviderAddScreen()),
+      ],
+    ),
+    ShellRoute(
+      builder: (context, state, child) {
+        return ProviderScope(//riverpod 저장소 중첩 선언..
+          overrides: [
+            //상위 저장소에 있는 것중.. 아래 선언한 것을 별도로 저장하겠다.
+            todosProvider.overrideWith(TodosNotifier.new)
+          ],
+          child: child,
+        );
+      },
+      routes: [
+        GoRoute(path: '/riverpod-home', builder: (context, state) => RiverpodHomeScreen()),
+        GoRoute(path: '/riverpod-add', builder: (context, state) => RiverpodAddScreen()),
       ],
     ),
   ],

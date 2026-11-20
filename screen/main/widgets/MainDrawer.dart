@@ -58,6 +58,13 @@ class MainDrawer extends StatelessWidget {
             onTap: (){
               context.push('/provider-home');
             },
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('riverpod'),
+            onTap: (){
+              context.push('/riverpod-home');
+            },
           )
         ],
       ),
